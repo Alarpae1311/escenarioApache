@@ -1,0 +1,13 @@
+version: '3'
+services:
+   php:
+     build:
+       context: ./
+       dockerfile: ./conf/Dockerfile
+     image: php:7.4-apache
+     ports:
+        - "8181:80"
+     volumes:
+        - ./web:/var/www/html    
+        - ./conf/sri.asir4all.ss.conf:/etc/apache2/sites-available/000-default.conf
+        - ./conf:/etc/apache2/sites-available
